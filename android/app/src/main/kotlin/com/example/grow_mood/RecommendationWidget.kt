@@ -26,7 +26,6 @@ import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.text.FontWeight
@@ -35,14 +34,10 @@ import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import com.example.grow_mood.base.actionStartActivity
 import com.example.grow_mood.const.CURRENT_PAGE_KEY
-import com.example.grow_mood.const.MOOD_DESCRIPTION_KEY
 import com.example.grow_mood.image.NetworkImage
-import java.util.Locale
 
 @Composable
 fun RecommendationWidget(context: Context, mood: String?, page: Int?) {
-    var description by remember { mutableStateOf("") }
-
     Box(
         modifier = GlanceModifier
             .background(Color.White)
@@ -139,7 +134,7 @@ fun RecommendationWidget(context: Context, mood: String?, page: Int?) {
                             .clickable(
                                 actionRunCallback<ChangePageAction>(
                                     actionParametersOf(
-                                        ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to (page + 1)
+                                        ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to 0
                                     )
                                 )
                             )
