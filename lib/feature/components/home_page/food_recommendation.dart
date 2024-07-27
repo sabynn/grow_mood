@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/components/home_page/food_recommendation_card.dart';
-import 'package:grow_mood/feature/components/home_page/today_mood_card.dart';
 
 class FoodRecommendation extends StatefulWidget {
   const FoodRecommendation({
@@ -29,8 +28,10 @@ class _FoodRecommendationState extends State<FoodRecommendation> {
             )),
           SingleChildScrollView(
             child: Padding(
-            padding: EdgeInsets.only(left: 0, right: 0),
+            padding: const EdgeInsets.only(left: 0, right: 0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Padding(
                     padding: EdgeInsets.only(bottom: 12),

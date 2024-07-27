@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:grow_mood/states/global_state.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
 import '../models/user_model.dart';
 
 class AccountState {
@@ -25,8 +24,6 @@ class AccountState {
       );
 
       UserModel user = await getUserById(userCredential.user!.uid);
-      print(user.name.toString());
-      print(_userModel?.name.toString());
       id = user.id;
       _userModel = user;
       await accountRM.setState((s) {

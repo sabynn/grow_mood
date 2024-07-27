@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/components/custom_button.dart';
 import 'package:grow_mood/feature/components/custom_text_form_field.dart';
 import 'package:grow_mood/feature/pages/base_navbar.dart';
-import 'package:grow_mood/feature/pages/home_page.dart';
+import 'package:grow_mood/feature/pages/space_page.dart';
 import 'package:grow_mood/feature/pages/register_page.dart';
 import 'package:grow_mood/states/account_state.dart';
 import 'package:grow_mood/theme/base_colors.dart';
@@ -24,8 +24,8 @@ class LoginPage extends StatelessWidget {
       return Container(
         margin: const EdgeInsets.only(top: 30),
         child: Text(
-          'Sign In with your\nexisting account',
-          style: GoogleFonts.poppins(
+          'Login with your\nexisting account',
+          style: GoogleFonts.inter(
             fontSize: 24,
             fontWeight: FontWeight.w500,
           ),
@@ -53,17 +53,26 @@ class LoginPage extends StatelessWidget {
 
       Widget submitButton() {
         return CustomButton(
-          title: 'Sign In',
+          title: 'Login',
           onPressed: () async {
-            await account.state.signIn(
-              email: emailController.text,
-              password: passwordController.text,
-            );
+            try {
+              await account.state.signIn(
+                email: emailController.text,
+                password: passwordController.text,
+              );
+            } catch (e) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Login failed'),
+                ));
+              }
+            }
+
             if (account.state.getUser != null && context.mounted) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => BasePage(body: const HomePage())),
+                    builder: (context) => BasePage(body: const SpacePage())),
               );
             }
           },
@@ -109,7 +118,7 @@ class LoginPage extends StatelessWidget {
             bottom: 73,
           ),
           child: Text(
-            'Don\'t have an account? Sign Up',
+            'Don\'t have an account? Register',
             style: GoogleFonts.inter(
               fontSize: 16,
               fontWeight: FontWeight.w400,

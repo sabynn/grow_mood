@@ -62,12 +62,14 @@ class BasePageState extends State<BasePage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // TopImageBg(context),
-            widget.body
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // TopImageBg(context),
+              widget.body
+            ],
+          ),
         ),
       ),
     );
@@ -92,7 +94,7 @@ class BasePageState extends State<BasePage> {
             ),
             Text(
               text,
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color:

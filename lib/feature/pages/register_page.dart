@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grow_mood/feature/pages/home_page.dart';
+import 'package:grow_mood/feature/pages/space_page.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../states/account_state.dart';
@@ -53,7 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Text(
                       'Register',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       ),
@@ -62,7 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
                         'Email',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -74,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'xyz@example.com',
-                        hintStyle: GoogleFonts.poppins(
+                        hintStyle: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -99,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           size: 16,
                         ),
                       ),
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
                         'Name',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Zuhal Hadi',
-                        hintStyle: GoogleFonts.poppins(
+                        hintStyle: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -146,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           size: 16,
                         ),
                       ),
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
                         'Password',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -168,7 +168,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: !passwordVisibility,
                       decoration: InputDecoration(
                         hintText: 'Password',
-                        hintStyle: GoogleFonts.poppins(
+                        hintStyle: GoogleFonts.inter(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                       ),
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -216,7 +216,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Text(
                         'Forgot Password?',
                         textAlign: TextAlign.end,
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
@@ -232,7 +232,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               backgroundColor: BaseColors.primary),
                           child: Text(
                             'Register',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                                 color: Colors.white),
@@ -248,7 +248,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        BasePage(body: const HomePage())),
+                                        BasePage(body: const SpacePage())),
                               );
                             }
                           }),
@@ -261,14 +261,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         children: [
                           Text(
                             'Already have an acoount?',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.inter(
                               fontSize: 10,
                             ),
                           ),
                           TextButton(
                             child: Text(
                               'Login',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13,
                                 color: Color(0xFF2FA068),

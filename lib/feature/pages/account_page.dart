@@ -6,10 +6,10 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      child: Column(
-        children: [
-          Text('>>>> hmm 2')
-        ],
+      child: Center(
+        child: Column(
+          children: [Text('Check Your Space or Go To GrabApp')],
+        ),
       ),
     );
   }

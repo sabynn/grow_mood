@@ -1,7 +1,7 @@
 import 'global_state.dart';
 
 class NavbarState{
-  String _route = '/home';
+  String _route = '/space';
   String? get getRoute => _route;
 
 
