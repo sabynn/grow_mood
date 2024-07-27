@@ -6,8 +6,6 @@ import 'package:grow_mood/feature/components/home_page/today_mood.dart';
 import 'package:grow_mood/theme/base_colors.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_custom_month_picker/flutter_custom_month_picker.dart';
-import 'package:grow_mood/states/global_state.dart';
-import 'package:states_rebuilder/scr/state_management/listeners/on_reactive.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
