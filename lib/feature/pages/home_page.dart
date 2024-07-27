@@ -99,6 +99,9 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )),
             const TodayMood(),
+            const Padding(
+                padding: EdgeInsets.only(top: 24),
+                child: FoodRecommendation()),
           ],
         ),
       ),
