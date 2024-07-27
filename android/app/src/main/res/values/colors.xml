@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_softest">#D9FCDE</color>
+    <color name="primary_soft">#B1EABA</color>
+    <color name="primary">#00B14F</color>
+    <color name="primary_bold">#00804A</color>
+    <color name="primary_translucent">#8000B14F</color> <!-- Adjusted opacity to 50% (80 in hex) -->
+
+    <color name="secondary">#FFEEF9F9</color>
+
+    <color name="neutral_contrast">#FFFFFFFF</color>
+    <color name="neutral_softest">#F5F5F5</color>
+    <color name="neutral_soft">#DBDBDB</color>
+    <color name="neutral">#707070</color>
+    <color name="neutral_bold">#575757</color>
+    <color name="neutral_boldest">#3D3D3D</color>
+
+    <color name="background">#FFFFFFFF</color> <!-- Same as neutral_contrast -->
+    <color name="link">#326BBF</color>
+</resources>
