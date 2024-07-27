@@ -103,11 +103,7 @@ fun RecommendationWidget(context: Context, mood: String?, page: Int?) {
                         modifier = GlanceModifier
                             .padding(8.dp)
                             .clickable(
-                                actionRunCallback<ChangePageAction>(
-                                    actionParametersOf(
-                                        ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to 0
-                                    )
-                                ),
+                                actionStartActivity<MainActivity>(context),
                             )
                     ) {
                         Text(
@@ -141,7 +137,7 @@ fun RecommendationWidget(context: Context, mood: String?, page: Int?) {
                     ) {
                         Text(
                             "Done",
-                            style = TextStyle(color = GlanceTheme.colors.primary, fontSize = 8.sp)
+                            style = TextStyle(color = GlanceTheme.colors.primary, fontSize = 10.sp)
                         )
                     }
                 }

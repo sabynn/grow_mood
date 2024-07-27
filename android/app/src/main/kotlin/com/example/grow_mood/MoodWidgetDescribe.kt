@@ -305,7 +305,7 @@ fun DescribeWidget(context: Context, mood: String?, description: String?, page: 
                     ) {
                         Text(
                             "Back",
-                            style = TextStyle(color = GlanceTheme.colors.primary, fontSize = 8.sp)
+                            style = TextStyle(color = GlanceTheme.colors.primary, fontSize = 10.sp)
                         )
                     }
                     Spacer(GlanceModifier.size(8.dp))
