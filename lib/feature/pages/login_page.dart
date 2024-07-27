@@ -54,24 +54,18 @@ class LoginPage extends StatelessWidget {
         return CustomButton(
           title: 'Sign In',
           onPressed: () async {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomePage()
-              ),
+            await account.state.signIn(
+              email: emailController.text,
+              password: passwordController.text,
             );
-            // await account.state.signIn(
-            //   email: emailController.text,
-            //   password: passwordController.text,
-            // );
-            // if (account.state.getUser != null && context.mounted) {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => const HomePage()
-            //     ),
-            //   );
-            // }
+            if (account.state.getUser != null && context.mounted) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage()
+                ),
+              );
+            }
           },
         );
       }

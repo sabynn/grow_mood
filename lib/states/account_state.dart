@@ -4,8 +4,7 @@ import '../models/user_model.dart';
 
 class AccountState {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final CollectionReference _userReference =
-      FirebaseFirestore.instance.collection('users');
+  final CollectionReference _userReference =  FirebaseFirestore.instance.collection('User');
 
   UserModel? _userModel;
 
@@ -21,6 +20,8 @@ class AccountState {
         password: password,
       );
 
+      print(userCredential.user?.getIdToken());
+
       UserModel user = await getUserById(userCredential.user!.uid);
       _userModel = user;
       return user;
@@ -30,11 +31,8 @@ class AccountState {
   }
 
   Future<UserModel> signUp({
-    required String username,
     required String email,
     required String password,
-    profilePic =
-        "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
   }) async {
     try {
       UserCredential userCredential =
@@ -45,9 +43,7 @@ class AccountState {
 
       UserModel user = UserModel(
         id: userCredential.user!.uid,
-        username: username,
         email: email,
-        profilePic: profilePic,
       );
 
       await setUser(user);
@@ -63,9 +59,7 @@ class AccountState {
       DocumentSnapshot snapshot = await _userReference.doc(id).get();
       return UserModel(
         id: id,
-        username: snapshot['username'],
         email: snapshot['email'],
-        profilePic: snapshot['profilePic'],
       );
     } catch (e) {
       rethrow;
@@ -76,8 +70,6 @@ class AccountState {
     try {
       _userReference.doc(user.id).set({
         'email': user.email,
-        'username': user.username,
-        'profilePic': user.profilePic,
       });
     } catch (e) {
       rethrow;
