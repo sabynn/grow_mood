@@ -6,7 +6,7 @@
     <color name="primary_bold">#00804A</color>
     <color name="primary_translucent">#8000B14F</color> <!-- Adjusted opacity to 50% (80 in hex) -->
 
-    <color name="secondary">#FFEEF9F9</color>
+    <color name="secondary_softest">#FFEEF9F9</color>
 
     <color name="neutral_contrast">#FFFFFFFF</color>
     <color name="neutral_softest">#F5F5F5</color>

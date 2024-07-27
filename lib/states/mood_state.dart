@@ -11,14 +11,30 @@ class MoodState {
   ];
 
   String _chosenMood = 'neutral';
+  String _moodDescription = '';
   int _sliderValue = 2;
 
   String? get getChosenMood => _chosenMood;
+  String? get getMoodDescription => _moodDescription;
 
   int get getSliderValue => _sliderValue;
 
   void getMood(String mood) {
     _chosenMood = mood;
+  }
+
+  void setMood(String mood) async {
+    await moodRM.setState((s) {
+      s._chosenMood = mood;
+      return;
+    });
+  }
+
+  void setDescription(String desc) async {
+    await moodRM.setState((s) {
+      s._moodDescription = desc;
+      return;
+    });
   }
 
   void choseInSlider(double value) async {
@@ -28,7 +44,7 @@ class MoodState {
     });
     String mood = listOfMoods[value.toInt()];
     _chosenMood = mood;
-    sendAndUpdate(mood);
+    sendAndUpdateMood(mood);
     print('>>> chose ${value} ${_sliderValue}');
   }
 }

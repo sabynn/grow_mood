@@ -1,4 +1,5 @@
 import 'package:grow_mood/states/mood_state.dart';
+import 'package:grow_mood/states/navbar_state.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 import 'account_state.dart';
 
@@ -8,7 +9,12 @@ final accountRM = RM.inject(
 );
 
 final moodRM = RM.inject(
-      () => MoodState(),
+  () => MoodState(),
+  autoDisposeWhenNotUsed: false,
+);
+
+final navbarRM = RM.inject(
+  () => NavbarState(),
   autoDisposeWhenNotUsed: false,
 );
 
@@ -20,6 +26,9 @@ class GlobalState {
       ),
       Inject(
         () => MoodState(),
+      ),
+      Inject(
+        () => NavbarState(),
       ),
     ];
   }
