@@ -130,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontWeight: FontWeight.w500,
                         ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1,
                           ),

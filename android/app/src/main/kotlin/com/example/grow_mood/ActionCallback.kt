@@ -6,72 +6,34 @@ import androidx.glance.GlanceId
 import androidx.glance.action.ActionParameters
 import androidx.glance.appwidget.action.ActionCallback
 import com.example.grow_mood.base.HomeWidgetBackgroundIntent
+import com.example.grow_mood.const.MOOD_DESCRIPTION_KEY
+import com.example.grow_mood.const.MOOD_KEY
 
-class VeryUnpleasantAction : ActionCallback {
+class ChooseMoodAction : ActionCallback {
     override suspend fun onAction(
         context: Context,
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+
         val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(
             context,
-            Uri.parse("moodWidget://very_unpleasant")
+            Uri.parse("moodWidget://${parameters[ActionParameters.Key<Int>(MOOD_KEY)]}")
         )
         backgroundIntent.send()
     }
 }
 
-class UnpleasantAction : ActionCallback {
+class ChooseMoodDescriptionAction : ActionCallback {
     override suspend fun onAction(
         context: Context,
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(
-            context,
-            Uri.parse("moodWidget://unpleasant")
-        )
-        backgroundIntent.send()
-    }
-}
 
-class NeutralAction : ActionCallback {
-    override suspend fun onAction(
-        context: Context,
-        glanceId: GlanceId,
-        parameters: ActionParameters
-    ) {
         val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(
             context,
-            Uri.parse("moodWidget://neutral")
-        )
-        backgroundIntent.send()
-    }
-}
-
-class PleasantAction : ActionCallback {
-    override suspend fun onAction(
-        context: Context,
-        glanceId: GlanceId,
-        parameters: ActionParameters
-    ) {
-        val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(
-            context,
-            Uri.parse("moodWidget://pleasant")
-        )
-        backgroundIntent.send()
-    }
-}
-
-class VeryPleasantAction : ActionCallback {
-    override suspend fun onAction(
-        context: Context,
-        glanceId: GlanceId,
-        parameters: ActionParameters
-    ) {
-        val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(
-            context,
-            Uri.parse("moodWidget://very_pleasant")
+            Uri.parse("moodWidget://${parameters[ActionParameters.Key<Int>(MOOD_DESCRIPTION_KEY)]}")
         )
         backgroundIntent.send()
     }

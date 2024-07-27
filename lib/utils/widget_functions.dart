@@ -1,28 +1,23 @@
 import 'dart:io';
 
+import 'package:grow_mood/models/mood.dart';
+import 'package:grow_mood/states/global_state.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:grow_mood/constants/widget_keys.dart';
 
 @pragma('vm:entry-point')
 Future<void> interactiveCallback(Uri? uri) async {
+  print('>>> $uri');
+  String? job = uri?.host.replaceAll('_', ' ');
   // We check the host of the uri to determine which action should be triggered.
-  if (uri?.host == 'very_unpleasant') {
-    print(">>> very_unpleasant ");
-  } else if (uri?.host == 'unpleasant') {
-    print(">>> unpleasant ");
-  } else if (uri?.host == 'neutral') {
-    print(">>> neutral ");
-  } else if (uri?.host == 'pleasant') {
-    print(">>> pleasant ");
-  } else if (uri?.host == 'very_pleasant') {
-    print(">>> very_unpleasant ");
+  if (MoodsList.contains(job)) {
+    sendAndUpdateMood(job);
+    moodRM.state.setMood(job!);
   }
-
-  sendAndUpdate(uri?.host.replaceAll('_', ' '));
 }
 
 /// Stores [value] in the Widget Configuration
-Future<void> sendAndUpdate([String? value]) async {
+Future<void> sendAndUpdateMood([String? value]) async {
   await HomeWidget.saveWidgetData(WidgetKeys.mood_keys, value);
 
   if (Platform.isAndroid) {
