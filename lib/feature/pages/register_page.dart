@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/pages/home_page.dart';
@@ -16,21 +18,20 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController? textUsernameController;
   TextEditingController? textEmailController;
   TextEditingController? textPasswordController;
+  TextEditingController? textNameController;
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  late String profileImageLink = "";
   final account = Injector.getAsReactive<AccountState>();
 
   @override
   void initState() {
     super.initState();
-    textUsernameController = TextEditingController();
     textEmailController = TextEditingController();
     textPasswordController = TextEditingController();
+    textNameController = TextEditingController();
     passwordVisibility = false;
   }
 
@@ -58,61 +59,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                        0,
-                        52,
-                        0,
-                        0,
-                      ),
-                      child: Text(
-                        'Username',
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    TextFormField(
-                      controller: textUsernameController,
-                      autofocus: true,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hintText: 'Ex: Jay',
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFDAEDDD),
-                        prefixIcon: const Icon(
-                          Icons.people,
-                          size: 16,
-                        ),
-                      ),
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      keyboardType: TextInputType.name,
-                    ),
-                    Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
-                        'Email Address',
+                        'Email',
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -155,6 +104,53 @@ class _RegisterPageState extends State<RegisterPage> {
                         fontWeight: FontWeight.w500,
                       ),
                       keyboardType: TextInputType.emailAddress,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Text(
+                        'Name',
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    TextFormField(
+                      controller: textNameController,
+                      autofocus: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Zuhal Hadi',
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        filled: true,
+                        fillColor: Color(0xFFDAEDDD),
+                        prefixIcon: Icon(
+                          Icons.person,
+                          size: 16,
+                        ),
+                      ),
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      keyboardType: TextInputType.name,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
@@ -245,10 +241,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           onPressed: () async {
                             await account.state.signUp(
-                              username: textUsernameController!.text,
                               email: textEmailController!.text,
                               password: textPasswordController!.text,
-                              profilePic: profileImageLink,
+                              name: textNameController!.text,
                             );
                             if (account.state.getUser != null) {
                               Navigator.push(
