@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/components/custom_button.dart';
 import 'package:grow_mood/feature/components/custom_text_form_field.dart';
+import 'package:grow_mood/feature/pages/base_navbar.dart';
 import 'package:grow_mood/feature/pages/home_page.dart';
 import 'package:grow_mood/feature/pages/register_page.dart';
 import 'package:grow_mood/states/account_state.dart';
@@ -10,12 +11,12 @@ import 'package:states_rebuilder/states_rebuilder.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
+
   final account = Injector.getAsReactive<AccountState>();
 
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
-  TextEditingController(text: '');
-
+      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +63,7 @@ class LoginPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomePage()
-                ),
+                    builder: (context) => BasePage(body: const HomePage())),
               );
             }
           },
@@ -95,9 +95,12 @@ class LoginPage extends StatelessWidget {
     Widget tacButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) => const RegisterPage(),
-          ),);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const RegisterPage(),
+            ),
+          );
         },
         child: Container(
           alignment: Alignment.center,

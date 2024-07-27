@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../states/account_state.dart';
 import '../../theme/base_colors.dart';
+import 'base_navbar.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -194,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         suffixIcon: InkWell(
                           onTap: () => setState(
-                                () => passwordVisibility = !passwordVisibility,
+                            () => passwordVisibility = !passwordVisibility,
                           ),
                           focusNode: FocusNode(skipTraversal: true),
                           child: Icon(
@@ -226,18 +226,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 28, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            minimumSize: Size(130, 42),
-                            textStyle: TextStyle(fontSize: 18),
-                            backgroundColor: BaseColors.primary
-                          ),
+                              shape: StadiumBorder(),
+                              minimumSize: Size(130, 42),
+                              textStyle: TextStyle(fontSize: 18),
+                              backgroundColor: BaseColors.primary),
                           child: Text(
                             'Register',
                             style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: Colors.white
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.white),
                           ),
                           onPressed: () async {
                             await account.state.signUp(
@@ -245,12 +243,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               password: textPasswordController!.text,
                               name: textNameController!.text,
                             );
-                            if (account.state.getUser != null) {
+                            if (account.state.getUser != null && context.mounted) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomePage()
-                                ),
+                                    builder: (context) =>
+                                        BasePage(body: const HomePage())),
                               );
                             }
                           }),
