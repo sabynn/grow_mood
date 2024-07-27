@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/components/custom_button.dart';
 import 'package:grow_mood/feature/components/custom_text_form_field.dart';
 import 'package:grow_mood/feature/pages/home_page.dart';
+import 'package:grow_mood/feature/pages/register_page.dart';
 import 'package:grow_mood/states/account_state.dart';
 import 'package:grow_mood/theme/base_colors.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
@@ -100,7 +101,9 @@ class LoginPage extends StatelessWidget {
     Widget tacButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/sign-up');
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => const RegisterPage(),
+          ),);
         },
         child: Container(
           alignment: Alignment.center,
