@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grow_mood/feature/components/display_name_text.dart';
+import 'package:grow_mood/feature/components/home_page/food_recommendation.dart';
 import 'package:grow_mood/feature/components/home_page/today_mood.dart';
 import 'package:grow_mood/theme/base_colors.dart';
 import 'package:intl/intl.dart';
@@ -35,7 +36,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    DateTime date = DateTime(yearController ?? DateTime.now().year, dateController);
+    DateTime date =
+        DateTime(yearController ?? DateTime.now().year, dateController);
     String formattedDate = DateFormat('MMM yyyy').format(date);
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -52,10 +54,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Text(
-                            todayDate(),
-                            style: GoogleFonts.inter(fontSize: 13),
-                            textAlign: TextAlign.left,
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              todayDate(),
+                              style: GoogleFonts.inter(fontSize: 13),
+                              textAlign: TextAlign.left,
+                            ),
                           ),
                           const DisplayNameText(),
                         ],
@@ -78,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                               yearController = year;
                             });
                           },
-                              initialSelectedMonth:  dateController > 0 ? dateController : DateTime.now().month,
+                              initialSelectedMonth: dateController > 0
+                                  ? dateController
+                                  : DateTime.now().month,
                               initialSelectedYear: 2024,
                               firstEnabledMonth: 1,
                               lastEnabledMonth: DateTime.now().month,
@@ -89,8 +96,7 @@ class _HomePageState extends State<HomePage> {
                               highlightColor: BaseColors.primary,
                               textColor: Colors.white,
                               contentBackgroundColor: BaseColors.background,
-                              dialogBackgroundColor: BaseColors.background
-                          )
+                              dialogBackgroundColor: BaseColors.background)
                         },
                         child: Text(
                           formattedDate,
@@ -101,6 +107,9 @@ class _HomePageState extends State<HomePage> {
                     ],
                   )),
               const TodayMood(),
+              const Padding(
+                  padding: EdgeInsets.only(top: 24),
+                  child: FoodRecommendation()),
             ],
           ),
         ),
