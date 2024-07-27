@@ -55,26 +55,31 @@ class LoginPage extends StatelessWidget {
         return CustomButton(
           title: 'Login',
           onPressed: () async {
-            try {
-              await account.state.signIn(
-                email: emailController.text,
-                password: passwordController.text,
-              );
-            } catch (e) {
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Login failed'),
-                ));
-              }
-            }
-
-            if (account.state.getUser != null && context.mounted) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => BasePage(body: const SpacePage())),
-              );
-            }
+            // try {
+            //   await account.state.signIn(
+            //     email: emailController.text,
+            //     password: passwordController.text,
+            //   );
+            // } catch (e) {
+            //   if (context.mounted) {
+            //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            //       content: Text('Login failed'),
+            //     ));
+            //   }
+            // }
+            //
+            // if (account.state.getUser != null && context.mounted) {
+            //   Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => BasePage(body: const SpacePage())),
+            //   );
+            // }
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BasePage(body: const SpacePage())),
+            );
           },
         );
       }

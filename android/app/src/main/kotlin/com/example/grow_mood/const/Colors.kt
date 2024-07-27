@@ -10,7 +10,7 @@ object AppColorScheme {
         primary = Color(0xFF00B14F),
         onPrimary = Color(0xFFFFFFFF),
         primaryContainer = Color(0xFFD9FCDE),
-        secondary = Color(0xFFEEF9F9),
+        secondary = Color(0xFF326BBF),
         onSecondary = Color(0xFF00B14F),
         onSecondaryContainer = Color(0xFF00B14F),
         tertiary = Color(0x00000000),

@@ -11,13 +11,12 @@ import androidx.glance.GlanceTheme
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
 import androidx.glance.currentState
-import androidx.glance.material3.ColorProviders
 import com.example.grow_mood.base.DefaultState
 import com.example.grow_mood.base.DefaultStateDefinition
 import com.example.grow_mood.const.MOOD_KEY
-import androidx.compose.material3.lightColorScheme
-import androidx.compose.ui.graphics.Color
 import com.example.grow_mood.const.AppColorScheme
+import com.example.grow_mood.const.CURRENT_PAGE_KEY
+import com.example.grow_mood.const.MOOD_DESCRIPTION_KEY
 
 
 class MyAppWidget : GlanceAppWidget() {
@@ -40,12 +39,19 @@ class MyAppWidget : GlanceAppWidget() {
     private fun MyContent(context: Context, currentState: DefaultState) {
         val data = currentState.preferences
         val mood = data.getString(MOOD_KEY, "")
-        var page by remember { mutableIntStateOf(0) }
+        var description = data.getString(MOOD_DESCRIPTION_KEY, "")
+        //        var page by remember { mutableIntStateOf(0) }
 
-        if (page == 0) {
-            BaseWidget(context, mood) { page += 1 }
-        } else if (page == 1) {
-            DescribeWidget(context, mood) { page -= 1 };
+        when (val page = data.getInt(CURRENT_PAGE_KEY, 0)) {
+            0 -> {
+                BaseWidget(context, mood, page)
+            }
+            1 -> {
+                DescribeWidget(context, mood, description, page)
+            }
+            2 -> {
+                RecommendationWidget(context, mood, page)
+            }
         }
     }
 }

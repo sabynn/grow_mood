@@ -2,11 +2,6 @@ package com.example.grow_mood
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,17 +25,16 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
-import androidx.glance.material3.ColorProviders
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
-import androidx.glance.unit.ColorProvider
 import com.example.grow_mood.base.actionStartActivity
+import com.example.grow_mood.const.CURRENT_PAGE_KEY
 import com.example.grow_mood.const.MOOD_KEY
 
 @Composable
-fun BaseWidget(context: Context, mood: String?, onPageChange: () -> Unit) {
+fun BaseWidget(context: Context, mood: String?, page: Int?) {
     Box(
         modifier = GlanceModifier
             .background(Color.White)
@@ -221,16 +215,22 @@ fun BaseWidget(context: Context, mood: String?, onPageChange: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalAlignment = Alignment.End
             ) {
-                Button(
-                    "Next",
-                    onClick = onPageChange,
-                    style = TextStyle(
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.Normal,
-                        textAlign = TextAlign.Left
-                    ),
-                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
-                )
+                if (page != null) {
+                    Button(
+                        "Next",
+                        onClick = actionRunCallback<ChangePageAction>(
+                            actionParametersOf(
+                                ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to (page+1)
+                            )
+                        ),
+                        style = TextStyle(
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Normal,
+                            textAlign = TextAlign.Left
+                        ),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                    )
+                }
             }
         }
     }

@@ -34,13 +34,12 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import com.example.grow_mood.base.actionStartActivity
+import com.example.grow_mood.const.CURRENT_PAGE_KEY
 import com.example.grow_mood.const.MOOD_DESCRIPTION_KEY
-import com.example.grow_mood.const.MOOD_KEY
 import java.util.Locale
 
 @Composable
-fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
-    var description by remember { mutableStateOf("") }
+fun DescribeWidget(context: Context, mood: String?, description: String?, page: Int?) {
 
     Box(
         modifier = GlanceModifier
@@ -104,7 +103,7 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                             ) {
                                 Button(
                                     "Angry",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "angry"
                                         )
@@ -113,15 +112,19 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Bold,
                                         textAlign = TextAlign.Center,
-                                        color = GlanceTheme.colors.primary
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "angry")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                                 Spacer(GlanceModifier.size(4.dp))
                                 Button(
                                     "Sad",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "sad"
                                         )
@@ -132,12 +135,17 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "sad")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                                 Spacer(GlanceModifier.size(4.dp))
                                 Button(
                                     "Drained",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "drained"
                                         )
@@ -148,7 +156,12 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "drained")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                             }
                         }
@@ -159,7 +172,7 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                             ) {
                                 Button(
                                     "Calm",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "calm"
                                         )
@@ -170,12 +183,17 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "calm")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                                 Spacer(GlanceModifier.size(4.dp))
                                 Button(
                                     "Drained",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "drained"
                                         )
@@ -186,7 +204,12 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "drained")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                             }
                         }
@@ -197,7 +220,7 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                             ) {
                                 Button(
                                     "Excited",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "excited"
                                         )
@@ -208,12 +231,17 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "excited")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                                 Spacer(GlanceModifier.size(4.dp))
                                 Button(
                                     "Proud",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "proud"
                                         )
@@ -224,12 +252,17 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "proud")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                                 Spacer(GlanceModifier.size(4.dp))
                                 Button(
                                     "Calm",
-                                    onClick = actionRunCallback<ChooseMoodAction>(
+                                    onClick = actionRunCallback<ChooseMoodDescriptionAction>(
                                         actionParametersOf(
                                             ActionParameters.Key<String>(MOOD_DESCRIPTION_KEY) to "calm"
                                         )
@@ -240,8 +273,12 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                                         textAlign = TextAlign.Center,
                                     ),
                                     modifier = GlanceModifier.defaultWeight().height(30.dp),
-                                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
-
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor =
+                                        if (description == "calm")
+                                            GlanceTheme.colors.primary
+                                        else GlanceTheme.colors.secondary
+                                    )
                                 )
                             }
                         }
@@ -254,24 +291,40 @@ fun DescribeWidget(context: Context, mood: String?, onPageBack: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalAlignment = Alignment.End
             ) {
-                Box(
-                    modifier = GlanceModifier
-                        .padding(8.dp)
-                        .clickable(block = onPageBack)
-                ) {
-                    Text("Back", style = TextStyle(color = GlanceTheme.colors.primary))
+                if (page != null) {
+                    Box(
+                        modifier = GlanceModifier
+                            .padding(8.dp)
+                            .clickable(
+                                actionRunCallback<ChangePageAction>(
+                                    actionParametersOf(
+                                        ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to (page - 1)
+                                    )
+                                ),
+                            )
+                    ) {
+                        Text(
+                            "Back",
+                            style = TextStyle(color = GlanceTheme.colors.primary, fontSize = 8.sp)
+                        )
+                    }
+                    Spacer(GlanceModifier.size(8.dp))
+                    Button(
+                        "Log Mood",
+                        onClick = actionRunCallback<ChangePageAction>(
+                            actionParametersOf(
+                                ActionParameters.Key<Int>(CURRENT_PAGE_KEY) to (page + 1)
+                            )
+                        ),
+                        style = TextStyle(
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Normal,
+                            textAlign = TextAlign.Left
+                        ),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
+                    )
                 }
-                Spacer(GlanceModifier.size(8.dp))
-//                Button(
-//                    "Log Mood",
-//                    onClick = actionRunCallback<WidgetNext>(),
-//                    style = TextStyle(
-//                        fontSize = 10.sp,
-//                        fontWeight = FontWeight.Normal,
-//                        textAlign = TextAlign.Left
-//                    ),
-//                    colors = ButtonDefaults.buttonColors(backgroundColor = GlanceTheme.colors.primary)
-//                )
+
             }
         }
     }
