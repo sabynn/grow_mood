@@ -23,3 +23,5 @@ flutter clean
 flutter pub get
 flutter run
 ```
+### Try the App
+[GrowMood](https://drive.google.com/file/d/1sHnOMXR0NCDyEn1oEUnLslWQ3c444UfX/view?usp=drive_link)
