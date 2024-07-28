@@ -23,6 +23,11 @@ class MoodState {
   String? get getMoodDescription => _moodDescription;
 
   int get getSliderValue => _sliderValue;
+
+  List<FoodRecommendation> _recommendations = [];
+
+  List<FoodRecommendation> get getRecommendations => _recommendations;
+
   void getMood(String mood) {
     _chosenMood = mood;
   }
@@ -57,8 +62,14 @@ class MoodState {
     print('>>> yas $response');
 
     if (response.statusCode == 200) {
-      return GenerateFoodResponse.fromJson(
+      GenerateFoodResponse result = GenerateFoodResponse.fromJson(
           jsonDecode(response.body) as Map<String, dynamic>);
+      await moodRM.setState((s) {
+        s._recommendations = result.recommendation ?? [];
+        return;
+      });
+      print('>>> yas ${ result.recommendation}');
+      return result;
     } else {
       throw Exception('Failed to load recommendation');
     }

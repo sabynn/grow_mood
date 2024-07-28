@@ -60,14 +60,6 @@ class LoginPage extends StatelessWidget {
                 email: emailController.text,
                 password: passwordController.text,
               );
-
-              if (account.state.getUser != null && context.mounted) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BasePage(body: const SpacePage())),
-                );
-              }
             } catch (e) {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -75,6 +67,19 @@ class LoginPage extends StatelessWidget {
                 ));
               }
             }
+
+            if (account.state.getUser != null && context.mounted) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BasePage(body: const SpacePage())),
+              );
+            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BasePage(body: const SpacePage())),
+            );
           },
         );
       }

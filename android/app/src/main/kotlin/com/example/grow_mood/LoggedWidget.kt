@@ -43,7 +43,7 @@ fun LoggedWidget() {
             horizontalAlignment = Alignment.Horizontal.CenterHorizontally,
         ) {
             Text(
-                "Logged",
+                "Logged. Wait for Recommendation",
                 style = TextStyle(fontWeight = FontWeight.Bold, color = GlanceTheme.colors.primary)
             )
             Button(

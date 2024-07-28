@@ -10,18 +10,18 @@ import 'utils/widget_functions.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: "dev",
+    name: DateTime.now().toString(),
     options: const FirebaseOptions(
-        apiKey: "AIzaSyDTbGBHK6IrooZQooUYMiFr3otHTPT70rk",
-        authDomain: "grow-mood-3.firebaseapp.com",
-        projectId: "grow-mood-3",
-        storageBucket: "grow-mood-3.appspot.com",
-        messagingSenderId: "54142750781",
-        appId: "1:54142750781:web:8edd09c14789664fb51a54"),
+        apiKey: "AIzaSyD6p4VWuYSAN2liaf2I-0sDzufpFir4pvI",
+        authDomain: "grow-mood-4.firebaseapp.com",
+        projectId: "grow-mood-4",
+        storageBucket: "grow-mood-4.appspot.com",
+        messagingSenderId: "656813039456",
+        appId: "1:656813039456:web:2be54aa52fbe652a04c805"),
   );
   // Register an Interactivity Callback. It is necessary that this method is static and public
   await HomeWidget.registerInteractivityCallback(interactiveCallback);
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -19,6 +19,7 @@ class SpacePage extends StatefulWidget {
 class _SpacePageState extends State<SpacePage> {
   int dateController = 0;
   int? yearController;
+
   @override
   void initState() {
     dateController = 0; //set the initial value of text field
@@ -106,9 +107,8 @@ class _SpacePageState extends State<SpacePage> {
                             Text(
                               formattedDate,
                               style: GoogleFonts.inter(
-                                color: BaseColors.neutralBoldest,
-                                fontSize: 12
-                              ),
+                                  color: BaseColors.neutralBoldest,
+                                  fontSize: 12),
                             ),
                           ],
                         ))
@@ -116,7 +116,9 @@ class _SpacePageState extends State<SpacePage> {
                 )),
             const TodayMood(),
             const Padding(
-                padding: EdgeInsets.only(top: 24), child: FoodRecommendation()),
+              padding: EdgeInsets.only(top: 24),
+              child: FoodRecommendation(),
+            ),
           ],
         ),
       ),
