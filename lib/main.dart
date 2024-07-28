@@ -10,8 +10,7 @@ import 'utils/widget_functions.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: DateTime.now().toString(),
-    options: const FirebaseOptions(
+    options: FirebaseOptions(
         apiKey: "AIzaSyD6p4VWuYSAN2liaf2I-0sDzufpFir4pvI",
         authDomain: "grow-mood-4.firebaseapp.com",
         projectId: "grow-mood-4",

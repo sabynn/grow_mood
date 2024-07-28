@@ -35,6 +35,38 @@ class FoodRecommendation extends ReactiveStatelessWidget {
                     'https://food.grab.com/id/id/restaurants?search=dark%20chocolate&support-deeplink=true&searchParameter=dark%20chocolate',
               )),
         ),
+        Padding(
+            padding: EdgeInsets.only(bottom: 12),
+            child: FoodRecommendationCard(
+              name: 'Dark Chocolate',
+              description: 'Sugar boost serotonin levels.',
+              internalLink:
+              'https://food.grab.com/id/id/restaurants?search=dark%20chocolate&support-deeplink=true&searchParameter=dark%20chocolate',
+            )),
+        Padding(
+            padding: EdgeInsets.only(bottom: 12),
+            child: FoodRecommendationCard(
+              name: 'Dark Chocolate',
+              description: 'Sugar boost serotonin levels.',
+              internalLink:
+              'https://food.grab.com/id/id/restaurants?search=dark%20chocolate&support-deeplink=true&searchParameter=dark%20chocolate',
+            )),
+        Padding(
+            padding: EdgeInsets.only(bottom: 12),
+            child: FoodRecommendationCard(
+              name: 'Dark Chocolate',
+              description: 'Sugar boost serotonin levels.',
+              internalLink:
+              'https://food.grab.com/id/id/restaurants?search=dark%20chocolate&support-deeplink=true&searchParameter=dark%20chocolate',
+            )),
+        Padding(
+            padding: EdgeInsets.only(bottom: 12),
+            child: FoodRecommendationCard(
+              name: 'Dark Chocolate',
+              description: 'Sugar boost serotonin levels.',
+              internalLink:
+              'https://food.grab.com/id/id/restaurants?search=dark%20chocolate&support-deeplink=true&searchParameter=dark%20chocolate',
+            )),
         ...recommendation.map((data) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 12),
