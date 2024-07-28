@@ -5,6 +5,7 @@ import 'package:grow_mood/states/global_state.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../theme/base_colors.dart';
+import 'account_page.dart';
 
 class BasePage extends StatefulWidget {
   BasePage({super.key, required this.body});
