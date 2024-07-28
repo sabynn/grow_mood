@@ -6,6 +6,8 @@ import '../models/user_model.dart';
 class AccountState {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final CollectionReference _userReference =  FirebaseFirestore.instance.collection('User');
+  final CollectionReference _moodReference = FirebaseFirestore.instance
+      .collection('History');
   late String id;
   UserModel? _userModel;
 
@@ -13,6 +15,15 @@ class AccountState {
   FirebaseAuth? get getAuth => _auth;
   CollectionReference get getUserRef => FirebaseFirestore.instance.collection('User');
 
+  Stream<QuerySnapshot> get getHistory {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      return _moodReference.where('user_id', isEqualTo: _userModel?.id).snapshots();
+    } else {
+      // Return an empty stream or handle the case where the user is not logged in
+      return const Stream.empty();
+    }
+  }
   Future<UserModel> signIn({
     required String email,
     required String password,
@@ -25,11 +36,11 @@ class AccountState {
 
       UserModel user = await getUserById(userCredential.user!.uid);
       id = user.id;
+      _userModel = user;
       await accountRM.setState((s) {
         s._userModel = user;
         return;
       });
-      print('>>> ${_userModel?.name.toString()}');
       return user;
     } catch (e) {
       rethrow;
