@@ -1,16 +1,25 @@
-# grow_mood
+# Grow Mood
+[![Generic badge](https://img.shields.io/badge/Flutter-v3.22.4-blue)](https://flutter.dev/docs)
+[![Generic badge](https://img.shields.io/badge/Dart-v2.4.4-blue)](https://dart.dev/guides)
 
-A new Flutter project.
+Mobile FrontEnd Service for Grow Mood Application
 
-## Getting Started
+## Local Setup
+### Prerequisites
+flutter 3.22.4
+dart 3.4.4
+kotlin 1.9.24
+android sdk >=3.4.4 <4.0.0
 
-This project is a starting point for a Flutter application.
+### Clone the Repository
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+git clone https://github.com/sabynn/grow_mood
+cd grow_mood
+```
+### Get The Dependencies and Run The App on Android Device/Emulator
+```bash
+flutter clean
+flutter pub get
+flutter run
+```
