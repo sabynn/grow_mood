@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grow_mood/feature/pages/account_page.dart';
-import 'package:grow_mood/feature/pages/home_page.dart';
 import 'package:grow_mood/feature/pages/space_page.dart';
 import 'package:grow_mood/states/global_state.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
@@ -51,10 +49,10 @@ class BasePageState extends State<BasePage> {
                     });
                   }),
                   _navBarIcon(Icons.person_outline, 'Account', () {
-                    // navbarRM.state.setRoutes('/account');
-                    // setState(() {
-                    //   widget.body = const AccountPage();
-                    // });
+                    navbarRM.state.setRoutes('/account');
+                    setState(() {
+                      widget.body = const AccountPage();
+                    });
                   })
                 ],
               ),

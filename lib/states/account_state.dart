@@ -25,12 +25,11 @@ class AccountState {
 
       UserModel user = await getUserById(userCredential.user!.uid);
       id = user.id;
-      _userModel = user;
       await accountRM.setState((s) {
         s._userModel = user;
         return;
       });
-      print(_userModel?.name.toString());
+      print('>>> ${_userModel?.name.toString()}');
       return user;
     } catch (e) {
       rethrow;
@@ -86,6 +85,15 @@ class AccountState {
         'email': user.email,
         'name': user.name,
       });
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+      _userModel = null;
     } catch (e) {
       rethrow;
     }
