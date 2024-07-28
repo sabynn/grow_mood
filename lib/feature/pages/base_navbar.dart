@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grow_mood/feature/pages/account_page.dart';
 import 'package:grow_mood/feature/pages/space_page.dart';
 import 'package:grow_mood/states/global_state.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
