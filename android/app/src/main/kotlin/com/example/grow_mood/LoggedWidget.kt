@@ -33,7 +33,10 @@ fun LoggedWidget() {
     Box(
         modifier = GlanceModifier
             .background(Color.White)
-            .padding(32.dp).height(140.dp).fillMaxWidth()
+            .padding(32.dp)
+            .height(140.dp)
+            .fillMaxWidth(),
+        contentAlignment = Alignment.Center // Center content within the Box
     ) {
         Column(
             verticalAlignment = Alignment.Vertical.CenterVertically,
@@ -59,4 +62,6 @@ fun LoggedWidget() {
             )
         }
     }
+
+
 }

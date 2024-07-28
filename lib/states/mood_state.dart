@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:grow_mood/models/food.dart';
 import 'package:grow_mood/states/global_state.dart';
-import 'package:grow_mood/utils/widget_functions.dart';
 import 'package:http/http.dart' as http;
 
 class MoodState {
@@ -18,8 +17,6 @@ class MoodState {
   String _chosenMood = 'neutral';
   String _moodDescription = '';
   int _sliderValue = 2;
-  final CollectionReference _moodReference = FirebaseFirestore.instance
-      .collection('Mood');
 
   String? get getChosenMood => _chosenMood;
 
@@ -52,14 +49,17 @@ class MoodState {
       'description': description,
     };
 
+    print('>>> hmmm $queryParameters');
     final response = await http.post(
       Uri.parse('http://34.101.105.147:8000/recommendation'),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode(queryParameters),
     );
+    print('>>> yas $response');
 
     if (response.statusCode == 200) {
-      return GenerateFoodResponse.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+      return GenerateFoodResponse.fromJson(
+          jsonDecode(response.body) as Map<String, dynamic>);
     } else {
       throw Exception('Failed to load recommendation');
     }

@@ -12,15 +12,15 @@ Future<void> interactiveCallback(Uri? uri) async {
   print('>>> $uri ${uri?.host}}');
   try {
     int page = int.parse(uri!.host);
+    await sendAndUpdatePage(page);
     if (page == 2) {
       GenerateFoodResponse response =
           await moodRM.state.fetchFoodRecommendation(
         moodRM.state.getChosenMood,
         moodRM.state.getMoodDescription,
       );
-
+      sendAndUpdatePage(page + 1);
     }
-    sendAndUpdatePage(page);
   } catch (e) {
     String? job = uri?.host.replaceAll('_', ' ');
     // We check the host of the uri to determine which action should be triggered.
