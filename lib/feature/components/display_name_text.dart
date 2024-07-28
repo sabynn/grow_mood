@@ -9,7 +9,7 @@ class DisplayNameText extends ReactiveStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Text(
-      '${accountRM.state.getUser?.name} Moods',
+      '${accountRM.state.getUser?.name ?? "Deyuna"} Moods',
       style: GoogleFonts.inter(
           fontSize: 20, fontWeight: FontWeight.bold),
     );

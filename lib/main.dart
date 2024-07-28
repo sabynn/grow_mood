@@ -10,15 +10,14 @@ import 'utils/widget_functions.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: "aaa",
+    name: "dev",
     options: const FirebaseOptions(
-        apiKey: "AIzaSyC78omBJt8G6dVrinnso2_OI4dXGgzHSMU",
-        authDomain: "grow-mood-2.firebaseapp.com",
-        projectId: "grow-mood-2",
-        storageBucket: "grow-mood-2.appspot.com",
-        messagingSenderId: "78373634591",
-        appId: "1:78373634591:web:9634f738684b37e0180b2a",
-        measurementId: "G-ZYLMGS6V35"),
+        apiKey: "AIzaSyDTbGBHK6IrooZQooUYMiFr3otHTPT70rk",
+        authDomain: "grow-mood-3.firebaseapp.com",
+        projectId: "grow-mood-3",
+        storageBucket: "grow-mood-3.appspot.com",
+        messagingSenderId: "54142750781",
+        appId: "1:54142750781:web:8edd09c14789664fb51a54"),
   );
   // Register an Interactivity Callback. It is necessary that this method is static and public
   await HomeWidget.registerInteractivityCallback(interactiveCallback);
