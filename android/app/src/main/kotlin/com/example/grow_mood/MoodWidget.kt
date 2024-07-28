@@ -50,8 +50,12 @@ class MyAppWidget : GlanceAppWidget() {
                 DescribeWidget(context, mood, description, page)
             }
             2 -> {
+                LoggedWidget()
+            }
+            3 -> {
                 RecommendationWidget(context, mood, page)
             }
+
         }
     }
 }

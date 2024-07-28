@@ -39,10 +39,10 @@ class BasePageState extends State<BasePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _navBarIcon(Icons.home_outlined, 'Home', () {
-                    navbarRM.state.setRoutes('/home');
-                    setState(() {
-                      widget.body = const HomePage();
-                    });
+                    // navbarRM.state.setRoutes('/home');
+                    // setState(() {
+                    //   widget.body = const HomePage();
+                    // });
                   }),
                   _navBarIcon(Icons.auto_awesome_outlined, 'Your Space', () {
                     navbarRM.state.setRoutes('/space');
@@ -51,10 +51,10 @@ class BasePageState extends State<BasePage> {
                     });
                   }),
                   _navBarIcon(Icons.person_outline, 'Account', () {
-                    navbarRM.state.setRoutes('/account');
-                    setState(() {
-                      widget.body = const AccountPage();
-                    });
+                    // navbarRM.state.setRoutes('/account');
+                    // setState(() {
+                    //   widget.body = const AccountPage();
+                    // });
                   })
                 ],
               ),

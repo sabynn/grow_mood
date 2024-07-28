@@ -5,24 +5,33 @@ import 'package:grow_mood/states/global_state.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:grow_mood/constants/widget_keys.dart';
 
+import '../models/food.dart';
+
 @pragma('vm:entry-point')
 Future<void> interactiveCallback(Uri? uri) async {
   print('>>> $uri ${uri?.host}}');
-  try{
+  try {
     int page = int.parse(uri!.host);
+    if (page == 2) {
+      GenerateFoodResponse response =
+          await moodRM.state.fetchFoodRecommendation(
+        moodRM.state.getChosenMood,
+        moodRM.state.getMoodDescription,
+      );
+
+    }
     sendAndUpdatePage(page);
-  }catch(e){
+  } catch (e) {
     String? job = uri?.host.replaceAll('_', ' ');
     // We check the host of the uri to determine which action should be triggered.
     if (MoodsList.contains(job)) {
       sendAndUpdateMood(job);
       moodRM.state.setMood(job!);
-    }else{
+    } else {
       sendAndUpdateDescription(job);
       moodRM.state.setDescription(job!);
     }
   }
-
 }
 
 /// Stores [value] in the Widget Configuration
@@ -55,7 +64,7 @@ Future<void> sendAndUpdatePage([int? value]) async {
 
 /// Gets the currently stored Value
 Future<int> get value async {
-  final value = await HomeWidget.getWidgetData<int>(WidgetKeys.mood_key,
-      defaultValue: 0);
+  final value =
+      await HomeWidget.getWidgetData<int>(WidgetKeys.mood_key, defaultValue: 0);
   return value!;
 }

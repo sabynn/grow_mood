@@ -11,14 +11,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "AIzaSyBOcB18iHneSsvSj0YxU3Y0HQopAvj8PDg",
-      authDomain: "grow-mood.firebaseapp.com",
-      projectId: "grow-mood",
-      storageBucket: "grow-mood.appspot.com",
-      messagingSenderId: "219145158027",
-      appId: "1:219145158027:web:29791b11238d7b4d1c038e",
-      measurementId: "G-LRJQGHJVD7",
-    ),
+        apiKey: "AIzaSyC78omBJt8G6dVrinnso2_OI4dXGgzHSMU",
+        authDomain: "grow-mood-2.firebaseapp.com",
+        projectId: "grow-mood-2",
+        storageBucket: "grow-mood-2.appspot.com",
+        messagingSenderId: "78373634591",
+        appId: "1:78373634591:web:9634f738684b37e0180b2a",
+        measurementId: "G-ZYLMGS6V35"),
   );
   // Register an Interactivity Callback. It is necessary that this method is static and public
   await HomeWidget.registerInteractivityCallback(interactiveCallback);

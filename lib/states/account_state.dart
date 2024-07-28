@@ -56,13 +56,11 @@ class AccountState {
       );
 
       await setUser(user);
-      print(user.toString());
       _userModel = user;
       await accountRM.setState((s) {
         s._userModel = user;
         return;
       });
-      print(_userModel.toString());
       return user;
     } catch (e) {
       rethrow;
