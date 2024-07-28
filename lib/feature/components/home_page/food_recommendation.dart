@@ -12,7 +12,6 @@ class FoodRecommendation extends ReactiveStatelessWidget {
   @override
   Widget build(BuildContext context) {
     var recommendation = moodRM.state.getRecommendations;
-    print('>>> recommendation ${recommendation}');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,

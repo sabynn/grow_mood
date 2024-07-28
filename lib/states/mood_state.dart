@@ -53,13 +53,11 @@ class MoodState {
       'description': description,
     };
 
-    print('>>> hmmm $queryParameters');
     final response = await http.post(
       Uri.parse('http://34.101.105.147:8000/recommendation'),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode(queryParameters),
     );
-    print('>>> yas $response');
 
     if (response.statusCode == 200) {
       GenerateFoodResponse result = GenerateFoodResponse.fromJson(
@@ -68,7 +66,6 @@ class MoodState {
         s._recommendations = result.recommendation ?? [];
         return;
       });
-      print('>>> yas ${ result.recommendation}');
       return result;
     } else {
       throw Exception('Failed to load recommendation');
