@@ -23,7 +23,6 @@ class MoodState {
   String? get getMoodDescription => _moodDescription;
 
   int get getSliderValue => _sliderValue;
-
   void getMood(String mood) {
     _chosenMood = mood;
   }

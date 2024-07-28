@@ -58,7 +58,8 @@ class _TodayMoodCardState extends State<TodayMoodCard> {
                         ),
                       ),
                       Image.network(
-                          'https://cdn.discordapp.com/attachments/784066636935331860/1266734084118286409/Component_1.png?ex=66a6398c&is=66a4e80c&hm=ab8e5b9f228ed165482013f312f274392856560ac55af03282b69482eaf8c41a&'),
+                        'https://cdn.discordapp.com/attachments/784066636935331860/1266734084118286409/Component_1.png?ex=66a6e24c&is=66a590cc&hm=419f964e0c267ebe7f8df5e4b670b0645b73a848b935c977d7bf363a470963fc&'
+                      ),
                       Text(
                         widget.mood,
                         style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w500),
